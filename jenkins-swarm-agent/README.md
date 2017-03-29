@@ -1,4 +1,4 @@
-**[vipconsult/jenkins-swarm-agent](https://hub.docker.com/r/vipconsult/jenkins-swarm-agent)**  is simple image that runs the jenkins swarm plugin jar file which connects to a given master using parameters from  the Docker secret 
+**[cancon2005/jenkins-swarm-agent](https://hub.docker.com/r/cancon2005/jenkins-swarm-agent)**  is simple image that runs the jenkins swarm plugin jar file which connects to a given master using parameters from  the Docker secret 
 
 https://wiki.jenkins-ci.org/display/JENKINS/Swarm+Plugin
 
@@ -19,7 +19,7 @@ the only requirement is that the host has a docker daemon running and you set th
 		--mount "type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock" \
 		--mount "type=bind,source=/tmp/,target=/tmp/" \
 		--secret source=jenkins-v1,target=jenkins \
-		vipconsult/jenkins-swarm-agent
+		cancon2005/jenkins-swarm-agent
 
 **On the staging docker swarm**
 
@@ -30,7 +30,7 @@ the only requirement is that the host has a docker daemon running and you set th
 		--mount "type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock" \
 		--mount "type=bind,source=/tmp/,target=/tmp/" \
 		--secret source=jenkins-v1,target=jenkins \
-		vipconsult/jenkins-swarm-agent
+		cancon2005/jenkins-swarm-agent
 	
 **On the production Docker swarm**
 
@@ -41,7 +41,7 @@ the only requirement is that the host has a docker daemon running and you set th
 		--mount "type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock" \
 		--mount "type=bind,source=/tmp/,target=/tmp/" \
 		--secret source=jenkins-v1,target=jenkins \
-		vipconsult/jenkins-swarm-agent
+		cancon2005/jenkins-swarm-agent
 	
 * **mode=global** when we add new nodes to the Docker cluster they will all connect to the jenkins master to serve as slaves
 * **mount "type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock"** we mount the Docker socket so that we can use the Docker client inside a container to start new containers or services directly on the host. This is a better approach than Docker in Docker
